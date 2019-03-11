@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class SecretNumber {
@@ -8,21 +9,23 @@ public class SecretNumber {
         Scanner scanner = new Scanner(System.in);
         int guess = Integer.parseInt(scanner.nextLine());
 
-        int number = 58;
+        Random generator = new Random();
+        int n = generator.nextInt(100);
+        n += 1;
         int count = 1;
 
         do {
-            if (guess > number) {
+            if (guess > n) {
                 System.out.println("That's too much, " + "keep trying");
                 guess = Integer.parseInt(scanner.nextLine());
                 count++;
             }
-            if (guess < number) {
-                System.out.println("Not enough, " + "Keep trying");
+            if (guess < n) {
+                System.out.println("Not enough, " + "keep trying");
                 guess = Integer.parseInt(scanner.nextLine());
                 count++;
             }
-            if (guess == number) {
+            if (guess == n) {
                 System.out.println("You got it! " + "After trying " + count + " times.");
                 return;
             }
